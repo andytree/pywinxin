@@ -9,7 +9,7 @@ sae.const.MYSQL_PORT    # 端口，类型为<type 'str'>，请根据框架要求
 sae.const.MYSQL_HOST_S  # 从库域名（只读）"""
 
 mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
-	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB)
+	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
 cursor = mdb.cursor()
 cursor.execute("select * from user ")
 results = cursor.fetchall()
@@ -17,7 +17,7 @@ data = ''
 for row in results:
 	#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1] + ",部门 = "+ str(row[2]) 
 	#data + str(row[0]) + str(row[2]) #+ 
-	data = row[1].encode('gb2312')
+	data = row[1]
 	#print data
 
 mdb.close()
