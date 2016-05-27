@@ -16,6 +16,6 @@ results = cursor.fetchall()
 data = ''
 for row in results:
 	#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1] + ",部门 = "+ str(row[2]) 
-	data = data + row[1]
+	data = data + row[1].encode('utf-8')
 
 mdb.close()
