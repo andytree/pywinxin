@@ -15,6 +15,7 @@ cursor.execute("select * from user ")
 results = cursor.fetchall()
 data = ''
 for row in results:
-	data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
+	#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
+	data = data + str(row[0]) + row[1].decode('utf-8') + str(row[2]
 
 mdb.close()
