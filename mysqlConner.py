@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sae.const
 
 """sae.const.MYSQL_DB      # 数据库名
