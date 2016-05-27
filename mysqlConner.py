@@ -12,4 +12,9 @@ mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_POR
 	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB)
 cursor = mdb.cursor()
 cursor.execute("select * from user ")
-data = cursor.fetchone()[0]
+results = cursor.fetchall()
+data = ''
+for row in results:
+	data = data+"id = "+row[0]+ "姓名 = "+ row[1] + ",部门 = "+ row[2] 
+
+mdb.close()
