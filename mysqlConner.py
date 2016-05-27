@@ -8,8 +8,8 @@ sae.const.MYSQL_HOST    # 主库域名（可读写）
 sae.const.MYSQL_PORT    # 端口，类型为<type 'str'>，请根据框架要求自行转换为int
 sae.const.MYSQL_HOST_S  # 从库域名（只读）"""
 
-db = MySQLdb.connect(sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),sae.const.MYSQL_USER,
-	sae.const.MYSQL_PASS,sae.const.MYSQL_DB)
-cursor = db.cursor()
+mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
+	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB)
+cursor = mdb.cursor()
 cursor.execute("select version()")
 data = cursor.fetchone()
