@@ -11,5 +11,5 @@ sae.const.MYSQL_HOST_S  # 从库域名（只读）"""
 mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
 	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB)
 cursor = mdb.cursor()
-cursor.execute("select version()")
+cursor.execute("select * from user ")
 data = cursor.fetchone()[0]
