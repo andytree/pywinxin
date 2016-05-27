@@ -5,6 +5,8 @@ import lxml
 import time
 import os
 import urllib2,json
+import import sae.const
+
 from lxml import etree
 
 class WeixinInterface:
@@ -42,4 +44,4 @@ class WeixinInterface:
         msgType=xml.find("MsgType").text
         fromUser=xml.find("FromUserName").text
         toUser=xml.find("ToUserName").text
-        return self.render.reply_text(fromUser,toUser,int(time.time()),u"我现在还在开发中，还没有什么功能，您刚才说的是："+content)
+        return self.render.reply_text(fromUser,toUser,int(time.time()),u"您刚才说的是："+sae.const.sae.const.MYSQL_PASS)
