@@ -12,4 +12,4 @@ mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_POR
 	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB)
 cursor = mdb.cursor()
 cursor.execute("select version()")
-data = cursor.fetchone().str
+data = cursor.fetchone()[0]
