@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sae.const
-
+import MySQLdb
 """sae.const.MYSQL_DB      # 数据库名
 sae.const.MYSQL_USER    # 用户名
 sae.const.MYSQL_PASS    # 密码
@@ -12,4 +12,4 @@ db = MySQLdb.connet(sae.const.MYSQL_HOST,sae.const.MYSQL_USER,
 	sae.const.MYSQL_PASS,sae.const.MYSQL_DB)
 cursor = db.cursor()
 cursor.execute("select version()")
-data = cursor.fetchone().str
+data = cursor.fetchone()
