@@ -5,7 +5,7 @@ import lxml
 import time
 import os
 import urllib2,json
-import import sae.const
+import sae.const
 
 from lxml import etree
 
