@@ -1,4 +1,5 @@
 class User(object):
+<<<<<<< HEAD
 	"""员工的类，包括每个员工识别ID、部门、职位、电话号码、短号、座机号等"""
 	def __init__(self, userId , departID , userName , departName , parentDepartName , positionName ,
 		phoneNum , shortNum ,telNum):
@@ -17,3 +18,11 @@ class User(object):
 			u'\n职位：' + self.positionName +
 			u'\n手机：' + self.phoneNum + u'\n短号：' + self.shortNum + u'\n座机号：' + self.telNum
 		return userInfo
+=======
+	"""员工的类，包括每个员工部门、职位、电话号码、短号、座机号等"""
+	def __init__(self, userName , departName , positionName ,
+		phoneNum , shortNum ,telNum):
+		super(User, self).__init__()
+		self.arg = arg
+		
+>>>>>>> f44d3ce7f269dfa6073014a640aaafdfa5a4fab7
