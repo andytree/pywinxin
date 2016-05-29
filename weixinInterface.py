@@ -44,4 +44,4 @@ class WeixinInterface:
         msgType=xml.find("MsgType").text
         fromUser=xml.find("FromUserName").text
         toUser=xml.find("ToUserName").text
-        return self.render.reply_text(fromUser,toUser,int(time.time()),u"您刚才说的是："+mysqlConner.data)
+        return self.render.reply_text(fromUser,toUser,int(time.time()),u"您刚\n才说\n的是：" + mysqlConner.data)
