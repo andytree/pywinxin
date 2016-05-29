@@ -18,3 +18,23 @@ for row in results:
 	#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
 	data = data + u"中\n文\n" + str(row[0]) + str(row[2]) + row[1]
 mdb.close()
+def excecu(ssql):
+	cursor.execute(ssql)
+	return cursor.fetchall()
+#获取用户的ID
+def getID(uname):
+	cursor.execute("select id from user where user_name=" + uname + " or py_name=" + uname)
+	results = cursor.fetchall()
+	if results == None：
+		return None
+	for row in results:
+		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
+		return row[0]
+
+#获取用户的具体信息
+def getUserInfo(uname):
+	uid = getID(uname[1:])
+	if uid = None :
+		data = '查无此人'
+	else :
+		
