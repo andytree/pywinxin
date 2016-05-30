@@ -34,7 +34,7 @@ def getID(uname):
 	for row in results:
 		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
 		newuser = user.User(row[0])
-		newuser.userName ,newuser.departId = row(1),row(2)
+		newuser.userName ,newuser.departId = row[1],row[2]
 		return False
 
 #获取用户部门和上级部门
