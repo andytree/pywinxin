@@ -13,7 +13,7 @@ class User(object):
 		#部门ID不是0和1的，那么就是二级部室
 		userInfo = u'xxx'
 		print self.parentdepartment,self.position
-		if self.departId != '0' and self.departId != '1':
+		"""if self.departId != '0' and self.departId != '1':
 			userInfo = '欢迎使用联系人查询功能！\n姓名：' + self.userName
 			+ '\n部门：' + self.parentdepartment +
 			'\n部室：' +  self.department + '\n职位：'+ self.position +
@@ -21,7 +21,7 @@ class User(object):
 			'\n短号：' + self.short +'\n机号：' + self.tel
 		else :
 			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName
-			"""+ u'\n部门：' + self.department +
+			+ u'\n部门：' + self.department +
 			u'\n职位：' + self.position +
 			u'\n手机：' + self.phone + 
 			u'\n短号：' + self.short +u'\n机号：'  + self.tel"""
