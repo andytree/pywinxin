@@ -20,20 +20,21 @@ for row in results:
 	data = data + u"中\n文\n" + str(row[0]) + str(row[2]) + row[1]
 mdb.close()'''
 
-mdb = ''
-cursor = ''
-#打开数据库连接
-def open():
-	this.mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
+mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
 	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
-	this.cursor = mdb.cursor()
+cursor = mdb.cursor()
+#打开数据库连接
+'''def open():
+	mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
+	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
+	cursor = mdb.cursor()
 	return
 
 #关闭数据库连接
 def close():
 	this.cursor.close()
 	this.mdb.close()
-	return
+	return'''
 
 #执行sql，返回结果集
 def excecu(ssql):
@@ -80,7 +81,6 @@ def getPhone():
 #获取数据转对象，对象转字符串的数据
 def getData(uname):
 	isNone = getID(uname[1:])
-	open()
 	if isNone :
 		data = u'查无此人'
 	else :
@@ -88,5 +88,4 @@ def getData(uname):
 		getPosition()
 		getPhone()
 		data = newuser.getUserInfo()
-	close()
 	return data
