@@ -2,6 +2,7 @@
 import sae.const
 import MySQLdb
 import user
+
 """sae.const.MYSQL_DB      # 数据库名
 sae.const.MYSQL_USER    # 用户名
 sae.const.MYSQL_PASS    # 密码
@@ -20,7 +21,7 @@ data = ''
 for row in results:
 	#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
 	data = data + u"中\n文\n" + str(row[0]) + str(row[2]) + row[1]
-mdb.close()''''
+mdb.close()'''
 #执行sql，返回结果集
 def excecu(ssql):
 	cursor.execute(ssql)
@@ -68,4 +69,5 @@ def getData(uname):
 	else :
 		getDepartInfo()
 		getPosition()
-		getPhone
+		getPhone（）
+	data = newuser.getUserinfo
