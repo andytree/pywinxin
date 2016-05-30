@@ -29,6 +29,7 @@ def excecu(ssql):
 #获取用户的ID、姓名、部门id
 def getID(uname):
 	results = excecu("select id,user_name,depart_id from user where user_name='" + uname + "' or py_name='" + uname+"'")
+	print len(results)
 	if results == None:
 		return True
 	else : 
