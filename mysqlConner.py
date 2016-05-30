@@ -80,6 +80,7 @@ def getPhone():
 
 #获取数据转对象，对象转字符串的数据
 def getData(uname):
+	cursor = mdb.cursor()
 	isNone = getID(uname[1:])
 	if isNone :
 		data = u'查无此人'
