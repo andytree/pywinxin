@@ -13,7 +13,7 @@ class User(object):
 		userInfo = u'xxx'
 		if self.departId != '0' and self.departId != '1':
 			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName
-			+ '\n部门：' + self.parentdepartment
+			+ u'\n部门：' + self.parentdepartment
 			""" +
 			u'\n部室：' +  self.department + u'\n职位：' + self.position +
 			u'\n手机：' + self.phone + 
