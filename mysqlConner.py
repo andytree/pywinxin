@@ -30,6 +30,7 @@ def excecu(ssql):
 #获取用户的ID、姓名、部门id
 def getID(uname):
 	results = excecu("select id,user_name,depart_id from user where user_name='" + uname + "' or py_name='" + uname+"'")
+	print results
 	if results == None:
 		return True
 	for row in results:
@@ -46,7 +47,7 @@ def getDepartInfo():
 			user.department = row[0]
 	else :
 		results = cursor.execute("select a.depart_name as '部室',b.depart_name as '部门' from department as a, department as b where b.id = a.parent_id and a.id = " + newuser.departId)
-		print results
+		#print results
 		for row in results:
 			user.department = row[0]
 			user.parentdepartment = row[1]
