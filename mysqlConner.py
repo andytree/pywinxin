@@ -43,7 +43,7 @@ def getDepartInfo():
 		results = cursor.execute("select depart_name from department where id = " + str(newuser.departId))
 		newuser.department = results[0][0]
 	else :
-		results = cursor.execute("select a.depart_name as '部室',b.depart_name as '部门' from department as a, department as b where b.id = a.parent_id and a.id = " + str(newuser.depart_id))
+		results = cursor.execute("select a.depart_name as '部室',b.depart_name as '部门' from department as a, department as b where b.id = a.parent_id and a.id = " + str(newuser.departId))
 		newuser.department = results[0][0]
 		newuser.parentdepartment = results[0][1]
 	return
