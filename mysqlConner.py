@@ -24,15 +24,15 @@ mdb = ''
 cursor = ''
 #打开数据库连接
 def open():
-	mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
+	this.mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
 	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
-	cursor = mdb.cursor()
+	this.cursor = mdb.cursor()
 	return
 
 #关闭数据库连接
 def close():
-	cursor.close()
-	mdb.close()
+	this.cursor.close()
+	this.mdb.close()
 	return
 
 #执行sql，返回结果集
