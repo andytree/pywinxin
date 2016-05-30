@@ -30,13 +30,13 @@ def excecu(ssql):
 #获取用户的ID、姓名、部门id
 def getID(uname):
 	results = excecu("select id,user_name,depart_id from user where user_name='" + uname + "' or py_name='" + uname+"'")
-	print results
+	print type(results)
 	if results == None:
 		return True
 	for row in results:
 		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
 		newuser.userId ,newuser.userName ,newuser.departId = str(int(row[0])),row[1],str(int(row[2]))
-		print newuser.userId
+		print newuser.departId
 		return False
 
 #获取用户部门和上级部门
