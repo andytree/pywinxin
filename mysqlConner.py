@@ -34,7 +34,7 @@ def getID(uname):
 	if results == None:
 		return True
 	else : 
-		newuser.userId ,newuser.userName ,newuser.departId = str(int(row[0][0])),row[0][1],str(int(row[0][2]))
+		newuser.userId ,newuser.userName ,newuser.departId = str(int(results[0][0])),results[0][1],str(int(results[0][2]))
 		print newuser.departId
 		return False
 
