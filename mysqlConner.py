@@ -35,7 +35,7 @@ def getID(uname):
 		return True
 	for row in results:
 		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
-		user.userId ,newuser.userName ,newuser.departId = row[0],row[1],str(row[2])
+		user.userId ,newuser.userName ,newuser.departId = str(int(row[0],row[1],str(int(row[2])
 		return False
 
 #获取用户部门和上级部门
