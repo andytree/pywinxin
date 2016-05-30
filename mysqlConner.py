@@ -33,14 +33,14 @@ def getID(uname):
 		return True
 	for row in results:
 		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
-		newuser.id , newuser.user_name ,newuser.depart_id = row[0],row(1),row(2)
+		newuser.userId , newuser.userName ,newuser.departId = row[0],row(1),row(2)
 		return False
 
 #获取用户部门和上级部门
 def getDepartInfo():
 	#一级部门，不需要查看上级部门
-	if newuser.depart_id in (0,1) :
-		results = cursor.execute("select depart_name from department where id = " + str(newuser.depart_id))
+	if newuser.departId in (0,1) :
+		results = cursor.execute("select depart_name from department where id = " + str(newuser.departId))
 		newuser.department = results[0][0]
 	else :
 		results = cursor.execute("select a.depart_name as '部室',b.depart_name as '部门' from department as a, department as b where b.id = a.parent_id and a.id = " + str(newuser.depart_id))
