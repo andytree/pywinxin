@@ -41,12 +41,14 @@ def getDepartInfo():
 	#一级部门，不需要查看上级部门
 	if newuser.departId in [0,1]:
 		results = cursor.execute("select depart_name from department where id = " + newuser.departId)
-		newuser.department = results[0][0]
+		for row in results:
+			user.department = row[0]
 	else :
 		results = cursor.execute("select a.depart_name as '部室',b.depart_name as '部门' from department as a, department as b where b.id = a.parent_id and a.id = " + newuser.departId)
-		print type(results)
-		newuser.department = results[0][0]
-		newuser.parentdepartment = results[0][1]
+		for row in results:
+			user.department = row[0]
+			user.parentdepartment = row[1]
+			print user.department,user.parentdepartment
 	return
 
 #获取职位
