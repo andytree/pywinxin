@@ -66,10 +66,9 @@ def getData(uname):
 	isNone = getID(uname[1:])
 	if isNone :
 		data = '查无此人'
-		return data
 	else :
 		getDepartInfo()
 		getPosition()
 		getPhone()
 		data = newuser.getUserinfo()
-		return data
+	return data
