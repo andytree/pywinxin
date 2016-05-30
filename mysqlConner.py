@@ -70,4 +70,4 @@ def getData(uname):
 		getDepartInfo()
 		getPosition()
 		getPhone()
-	data = newuser.getUserinfo
+	data = newuser.getUserinfo()
