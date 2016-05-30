@@ -71,7 +71,7 @@ def getData(uname):
 		getDepartInfo()
 		getPosition()
 		getPhone()
-		data = newuser.getUserinfo()
+		data = newuser.getUserInfo()
 	cursor.close()
 	mdb.close()
 	return data
