@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sae.const
 import MySQLdb
-import user
+import user.User
 
 """sae.const.MYSQL_DB      # 数据库名
 sae.const.MYSQL_USER    # 用户名
