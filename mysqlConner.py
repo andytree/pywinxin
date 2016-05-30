@@ -14,7 +14,7 @@ mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_POR
 	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
 cursor = mdb.cursor()
 newuser = user.User()
-data = ''
+data = u''
 '''cursor.execute("select * from department ")
 results = cursor.fetchall()
 data = ''
@@ -67,7 +67,7 @@ def getPhone():
 def getData(uname):
 	isNone = getID(uname[1:])
 	if isNone :
-		data = '查无此人'
+		data = u'查无此人'
 	else :
 		getDepartInfo()
 		getPosition()
