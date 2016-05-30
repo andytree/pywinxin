@@ -42,6 +42,7 @@ class WeixinInterface:
         xml = etree.fromstring(str_xml)#进行XML解析
         content=xml.find("Content").text#获得用户所输入的内容
         udata = u''
+        print content
         if content[0] = '?':
             udata = mysqlConner.getData()
         msgType=xml.find("MsgType").text
