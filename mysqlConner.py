@@ -25,6 +25,7 @@ mdb.close()'''
 #执行sql，返回结果集
 def excecu(ssql):
 	cursor.execute(ssql)
+	print cursor
 	return cursor.fetchall()
 #获取用户的ID、姓名、部门id
 def getID(uname):
