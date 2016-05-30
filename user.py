@@ -8,7 +8,7 @@ class User(object):
 
 	'''userId , departId , userName , department , parentdepartment , position , phone ,short ,tel'''
 	#获取员工信息的拼接字段
-	def getUserInfo():
+	def getUserInfo(self):
 		#部门ID不是0和1的，那么就是二级部室
 		userInfo = u'xxx'
 		'''if departId != 0 and departId != 1:
