@@ -21,7 +21,7 @@ for row in results:
 mdb.close()'''
 
 mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
-	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8',connect_timeout = 60)
+	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
 cursor = mdb.cursor()
 #打开数据库连接
 '''def open():
@@ -80,11 +80,9 @@ def getPhone():
 
 #获取数据转对象，对象转字符串的数据
 def getData(uname):
-	try: 
-   		mdb.ping() 
-	except Excption,e:      #实际对应的  MySQLdb.OperationalError 这个异常 
-   		mdb = MySQLdb.connect()
-   		cursor = mdb.cursor()
+   	mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
+	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
+   	#cursor = mdb.cursor()
 	isNone = getID(uname[1:])
 	if isNone :
 		data = u'查无此人'
