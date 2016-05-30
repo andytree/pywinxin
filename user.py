@@ -3,9 +3,8 @@ import os
 
 class User(object):
 	"""员工的类，包括每个员工识别ID、部门、职位、电话号码、短号、座机号等"""
-	def __init__(self ,userId):
+	def __init__(self ):
 		super(User, self).__init__()
-		self.userId = userId
 	
 	'''userId , departId , userName , department , parentdepartment , position , phone ,short ,tel'''
 	#获取员工信息的拼接字段

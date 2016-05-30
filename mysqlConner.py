@@ -13,7 +13,7 @@ sae.const.MYSQL_HOST_S  # 从库域名（只读）"""
 mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
 	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
 cursor = mdb.cursor()
-newuser = ''
+newuser
 data = ''
 '''cursor.execute("select * from department ")
 results = cursor.fetchall()
@@ -34,7 +34,7 @@ def getID(uname):
 	for row in results:
 		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
 		newuser = user.User(row[0])
-		newuser.userName ,newuser.departId = row[1],row[2]
+		user.userId ,newuser.userName ,newuser.departId = row[0],row[1],row[2]
 		return False
 
 #获取用户部门和上级部门
