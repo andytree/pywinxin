@@ -44,7 +44,7 @@ class WeixinInterface:
         udata = u''
         #print content
         if (content[0] ==u'?' or content[0] ==u'？'):
-            udata = mysqlConner.getData()
+            udata = mysqlConner.getData(content[1:])
         else :
             udata = content
         msgType=xml.find("MsgType").text
