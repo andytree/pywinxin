@@ -47,7 +47,7 @@ def getDepartInfo():
 		#print results
 		user.department = results[0][0]
 		user.parentdepartment = results[0][1]
-		print user.department,user.parentdepartment
+		#print user.department,user.parentdepartment
 	return
 
 #获取职位
