@@ -18,10 +18,11 @@ class User(object):
 			u'\n手机：' + self.phone + 
 			u'\n短号：' + self.short +u'\n机号：' + self.tel"""
 		else :
-			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName + u'\n部门：' + self.department +
+			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName
+			"""+ u'\n部门：' + self.department +
 			u'\n职位：' + self.position +
 			u'\n手机：' + self.phone + 
-			u'\n短号：' + self.short +u'\n机号：'  + self.tel
+			u'\n短号：' + self.short +u'\n机号：'  + self.tel"""
 		print userInfo
 		return userInfo
 		
