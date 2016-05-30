@@ -41,7 +41,10 @@ class WeixinInterface:
         str_xml = web.data() #获得post来的数据
         xml = etree.fromstring(str_xml)#进行XML解析
         content=xml.find("Content").text#获得用户所输入的内容
+        udata = u''
+        if content[0] = '?':
+            udata = mysqlConner.getData()
         msgType=xml.find("MsgType").text
         fromUser=xml.find("FromUserName").text
         toUser=xml.find("ToUserName").text
-        return self.render.reply_text(fromUser,toUser,int(time.time()),u"您刚\n才说\n的是：" + mysqlConner.data)
+        return self.render.reply_text(fromUser,toUser,int(time.time()),u"您刚\n才说\n的是：" + udata)
