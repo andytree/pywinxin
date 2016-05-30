@@ -28,7 +28,7 @@ def excecu(ssql):
 	return cursor.fetchall()
 #获取用户的ID、姓名、部门id
 def getID(uname):
-	results = excecu("select id,user_name,depart_id from user where user_name=" + uname + " or py_name=" + uname)
+	results = excecu("select id,user_name,depart_id from user where user_name='" + uname + "' or py_name='" + uname+"'")
 	if results == None:
 		return True
 	for row in results:
