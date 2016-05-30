@@ -33,31 +33,31 @@ def getID(uname):
 		return True
 	for row in results:
 		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
-		user.userId ,newuser.userName ,newuser.departId = row[0],row[1],row[2]
+		user.userId ,newuser.userName ,newuser.departId = row[0],row[1],str(row[2])
 		return False
 
 #获取用户部门和上级部门
 def getDepartInfo():
 	#一级部门，不需要查看上级部门
-	type(newuser.departId)
 	if newuser.departId in [0,1]:
 		results = cursor.execute("select depart_name from department where id = " + newuser.departId)
 		newuser.department = results[0][0]
 	else :
-		results = cursor.execute("select a.depart_name as '部室',b.depart_name as '部门' from department as a, department as b where b.id = a.parent_id and a.id = " + str(newuser.departId))
+		results = cursor.execute("select a.depart_name as '部室',b.depart_name as '部门' from department as a, department as b where b.id = a.parent_id and a.id = " + newuser.departId)
+		print type(results[0][0])
 		newuser.department = results[0][0]
 		newuser.parentdepartment = results[0][1]
 	return
 
 #获取职位
 def getPosition():
-	results = cursor.execute("select p.position_name from position as p,user_pos as u where p.id = u.pos_id and u.user_id = " + str(newuser.id))
+	results = cursor.execute("select p.position_name from position as p,user_pos as u where p.id = u.pos_id and u.user_id = " + str(newuser.userId))
 	newuser.position = results[0][0]
 	return
 
 #获取手机、短号、座机号
 def getPhone():
-	results = cursor.execute("select p.phone_num,p.short_num,p.tel_num from phone as p where user_id = " + str(newuser.id))
+	results = cursor.execute("select p.phone_num,p.short_num,p.tel_num from phone as p where user_id = " + str(newuser.userId))
 	newuser.tel,newuser.short,newuser.tel = results[0][0],results[0][1],results[0][2]
 	return
 
