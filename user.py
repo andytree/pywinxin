@@ -12,9 +12,9 @@ class User(object):
 	def getUserInfo(self):
 		#部门ID不是0和1的，那么就是二级部室
 		userInfo = u'xxx'
-		print self.department,self.position
+		print self.department,self.position,self.parentdepartment
 		if self.departId not in ['0','1']:
-			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName+ u'\n部门：' + unicode(self.parentdepartment,'utf-8')
+			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName+ u'\n部门：' + unicode(self.parentdepartment)
 			'''+
 			u'\n部室：' +  self.department + u'\n职位：'+ self.position +
 			u'\n手机：' + self.phone + 
