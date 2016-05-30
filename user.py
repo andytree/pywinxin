@@ -14,7 +14,7 @@ class User(object):
 		userInfo = u'xxx'
 		print self.department,self.position
 		if self.departId not in ['0','1']:
-			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + elf.userName
+			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName
 			+ u'\n部门：' + self.parentdepartment
 			'''+
 			u'\n部室：' +  self.department + u'\n职位：'+ self.position +
