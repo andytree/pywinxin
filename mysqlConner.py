@@ -31,7 +31,7 @@ cursor = mdb.cursor()
 	return
 
 #关闭数据库连接'''
-def close()
+def close():
 	cursor.close()
 	mdb.close()
 	return
