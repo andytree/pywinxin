@@ -33,9 +33,8 @@ def getID(uname):
 	print type(results)
 	if results == None:
 		return True
-	for row in results:
-		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
-		newuser.userId ,newuser.userName ,newuser.departId = str(int(row[0])),row[1],str(int(row[2]))
+	else : 
+		newuser.userId ,newuser.userName ,newuser.departId = str(int(row[0][0])),row[0][1],str(int(row[0][2]))
 		print newuser.departId
 		return False
 
