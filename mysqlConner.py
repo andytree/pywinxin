@@ -91,5 +91,5 @@ def getData(uname):
 		getPosition()
 		getPhone()
 		data = newuser.getUserInfo()
-	close()
+	#close()
 	return data
