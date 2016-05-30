@@ -69,5 +69,5 @@ def getData(uname):
 	else :
 		getDepartInfo()
 		getPosition()
-		getPhone（）
+		getPhone()
 	data = newuser.getUserinfo
