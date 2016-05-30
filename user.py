@@ -1,9 +1,13 @@
+# -*- coding: utf-8 -*-
+import os
+
 class User(object):
 	"""员工的类，包括每个员工识别ID、部门、职位、电话号码、短号、座机号等"""
-	def __init__(self, userId , departID , userName , department , parentdepartment , position ,
-		phone ,short ,tel ):
+	def __init__(self ):
 		super(User, self).__init__()
-		self.arg = arg
+	
+	'''userId , departID , userName , department , parentdepartment , position ,
+		phone ,short ,tel'''
 	#获取员工信息的拼接字段
 	def getUserInfo():
 		#部门ID不是0和1的，那么就是二级部室
