@@ -43,7 +43,7 @@ class WeixinInterface:
         content=xml.find("Content").text#获得用户所输入的内容
         udata = u''
         #print content
-        if (content[0] == '?' or content[0] == '？'):
+        if (content[0] == u'?' or content[0] == u'？'):
             udata = mysqlConner.getData(content[1:])
         else :
             udata = content
