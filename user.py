@@ -14,7 +14,7 @@ class User(object):
 		if self.departId != '0' and self.departId != '1':
 			userInfo = unicode('欢迎使用联系人查询功能！\n姓名：' + self.userName
 			+ '\n部门：' + self.parentdepartment+
-			'\n部室：' +  self.department + u'\n职位：' + self.position +
+			'\n部室：' +  self.department + '\n职位：' + self.position +
 			'\n手机：' + self.phone + 
 			'\n短号：' + self.short +'\n机号：' + self.tel)
 		else :
