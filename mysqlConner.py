@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import sae.const
 import MySQLdb
+import user
 """sae.const.MYSQL_DB      # 数据库名
 sae.const.MYSQL_USER    # 用户名
 sae.const.MYSQL_PASS    # 密码
@@ -11,30 +12,51 @@ sae.const.MYSQL_HOST_S  # 从库域名（只读）"""
 mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
 	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
 cursor = mdb.cursor()
-cursor.execute("select * from department ")
+newuser = User()
+data = ''
+'''cursor.execute("select * from department ")
 results = cursor.fetchall()
 data = ''
 for row in results:
 	#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
 	data = data + u"中\n文\n" + str(row[0]) + str(row[2]) + row[1]
-mdb.close()
+mdb.close()''''
+#执行sql，返回结果集
 def excecu(ssql):
 	cursor.execute(ssql)
 	return cursor.fetchall()
 #获取用户的ID
 def getID(uname):
-	cursor.execute("select id from user where user_name=" + uname + " or py_name=" + uname)
-	results = cursor.fetchall()
-	if results == None：
-		return None
+	results = excecu("select id,user_name,depart_id from user where user_name=" + uname + " or py_name=" + uname)
+	if results == None:
+		return True
 	for row in results:
 		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
-		return row[0]
+		newuser.id , newuser.user_name ,newuser.depart_id = row[0],row(1),row(2)
+		return False
 
 #获取用户的具体信息
-def getUserInfo(uname):
-	uid = getID(uname[1:])
-	if uid = None :
+def getDepartInfo(uname):
+	isNone = getID(uname[1:])
+	if isNone :
 		data = '查无此人'
 	else :
-		
+		#一级部门，不需要查看上级部门
+		if newuser.depart_id in (0,1) :
+			results = cursor.execute("select depart_name from department where id = " + str(newuser.depart_id))
+			newuser.department = results[0][0]
+		else :
+			results = cursor.execute("select a.depart_name as '部室',b.depart_name as '部门' from department as a, department as b where b.id = a.parent_id and a.id = " + str(newuser.depart_id))
+			newuser.department = results[0][0]
+			newuser.parentdepartment = results[0][1]
+	return
+	
+def getPosition():
+	results = cursor.execute("select p.position_name from position as p,user_pos as u where p.id = u.pos_id and u.user_id = " + str(newuser.id))
+	newuser.position = results[0][0]
+	return
+
+def getPhone():
+	results = cursor.execute("select p.phone_num,p.short_num,p.tel_num from phone as p where user_id = " + str(newuser.id))
+	newuser.tel,newuser.short,newuser.tel = results[0][0],results[0][1],results[0][2]
+	return
