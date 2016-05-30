@@ -80,9 +80,11 @@ def getPhone():
 
 #获取数据转对象，对象转字符串的数据
 def getData(uname):
-	mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
-	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8',connect_timeout = 60)
-	cursor = mdb.cursor()
+	try: 
+   		mdb.ping() 
+	except Excption,e:      #实际对应的  MySQLdb.OperationalError 这个异常 
+   		mdb = new mdb
+   		cursor = mdb.cursor()
 	isNone = getID(uname[1:])
 	if isNone :
 		data = u'查无此人'
