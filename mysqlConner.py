@@ -40,7 +40,7 @@ def getID(uname):
 #获取用户部门和上级部门
 def getDepartInfo():
 	#一级部门，不需要查看上级部门
-	print type(newuser.departId)
+	type(newuser.departId)
 	if newuser.departId in [0,1]:
 		results = cursor.execute("select depart_name from department where id = " + newuser.departId)
 		newuser.department = results[0][0]
