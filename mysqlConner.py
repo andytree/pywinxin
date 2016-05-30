@@ -83,7 +83,7 @@ def getData(uname):
 	try: 
    		mdb.ping() 
 	except Excption,e:      #实际对应的  MySQLdb.OperationalError 这个异常 
-   		mdb = new mdb
+   		mdb = MySQLdb.connect()
    		cursor = mdb.cursor()
 	isNone = getID(uname[1:])
 	if isNone :
