@@ -75,7 +75,7 @@ def getPosition():
 #获取手机、短号、座机号
 def getPhone():
 	results = excecu("select p.phone_num,p.short_num,p.tel_num from phone as p where user_id = " + newuser.userId)
-	newuser.tel,newuser.short,newuser.tel = results[0][0],results[0][1],results[0][2]
+	newuser.phone,newuser.short,newuser.tel = results[0][0],results[0][1],results[0][2]
 	return
 
 #获取数据转对象，对象转字符串的数据
