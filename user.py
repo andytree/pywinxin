@@ -14,18 +14,16 @@ class User(object):
 		userInfo = u'xxx'
 		print self.department,self.position,self.parentdepartment
 		if self.departId not in ['0','1']:
-			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName+ u'\n部门：' +\
-			unicode(self.parentdepartment)
-			'''+
-			u'\n部室：' +  self.department + u'\n职位：'+ self.position +
-			u'\n手机：' + self.phone + 
-			u'\n短号：' + self.short +u'\n机号：' + self.tel'''
+			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName+ u'\n部门：'\
+			+unicode(self.parentdepartment)+\
+			u'\n部室：' + unicode(sself.department) + u'\n职位：'+ unicode(sself.position) +\
+			u'\n手机：' + unicode(sself.phone) + \
+			u'\n短号：' + unicode(sself.short) +u'\n机号：' + unicode(sself.tel)
 		else :
-			'''userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName
-			+ u'\n部门：' + self.department +
-			u'\n职位：' + self.position +
-			u'\n手机：' + self.phone + 
-			u'\n短号：' + self.short +u'\n机号：'  + self.tel'''
+			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName+\
+			u'\n部门：' + unicode(sself.department) + u'\n职位：'+ unicode(sself.position) +\
+			u'\n手机：' + unicode(sself.phone) + \
+			u'\n短号：' + unicode(sself.short) +u'\n机号：' + unicode(sself.tel)
 		print userInfo
 		return userInfo
 		

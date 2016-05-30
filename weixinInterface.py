@@ -44,10 +44,17 @@ class WeixinInterface:
         udata = u''
         #print content
         if (content[0] == u'?' or content[0] == u'？'):
+
             udata = mysqlConner.getData(content)
         else :
             udata = content
         msgType=xml.find("MsgType").text
         fromUser=xml.find("FromUserName").text
         toUser=xml.find("ToUserName").text
-        return self.render.reply_text(fromUser,toUser,int(time.time()),u"您刚才说的是：\n" + udata)
+        return self.render.reply_text(fromUser,toUser,int(time.time()), udata)
+
+    #获取连接
+    def getCon():
+        mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
+        passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
+        cursor = mdb.cursor()
