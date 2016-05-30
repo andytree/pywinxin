@@ -21,7 +21,7 @@ for row in results:
 mdb.close()'''
 
 mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
-	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8',read_timeout = 10)
+	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8',connect_timeout = 60)
 cursor = mdb.cursor()
 #打开数据库连接
 '''def open():
