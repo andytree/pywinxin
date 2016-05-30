@@ -11,8 +11,8 @@ class User(object):
 	#获取员工信息的拼接字段
 	def getUserInfo():
 		#部门ID不是0和1的，那么就是二级部室
-		userInfo = ''
-		if departID not in [0,1]:
+		userInfo = u''
+		if depart_id not in [0,1]:
 			userInfo = u'欢迎使用联系人查询功能！\n姓名：' + self.userName + u'\n部门：' + self.parentdepartment +
 			u'\n部室：' +  self.department + u'\n职位：' + self.position +
 			u'\n手机：' + self.phone + 
