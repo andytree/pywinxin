@@ -30,11 +30,11 @@ cursor = mdb.cursor()
 	cursor = mdb.cursor()
 	return
 
-#关闭数据库连接
-def close():
-	this.cursor.close()
-	this.mdb.close()
-	return'''
+#关闭数据库连接'''
+def close()
+	cursor.close()
+	mdb.close()
+	return
 
 #执行sql，返回结果集
 def excecu(ssql):
@@ -88,4 +88,5 @@ def getData(uname):
 		getPosition()
 		getPhone()
 		data = newuser.getUserInfo()
+	close()
 	return data
