@@ -30,7 +30,7 @@ def excecu(ssql):
 def getID(uname):
 	results = excecu("select id,user_name,depart_id from user where user_name='" + uname + "' or py_name='" + uname+"'")
 	print len(results)
-	if results == None:
+	if len(results) == 0:
 		return True
 	else : 
 		newuser.userId ,newuser.userName ,newuser.departId = str(int(results[0][0])),results[0][1],str(int(results[0][2]))
