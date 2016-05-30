@@ -53,13 +53,13 @@ def getDepartInfo():
 
 #获取职位
 def getPosition():
-	results = excecu("select p.position_name from position as p,user_pos as u where p.id = u.pos_id and u.user_id = " + str(newuser.userId))
+	results = excecu("select p.position_name from position as p,user_pos as u where p.id = u.pos_id and u.user_id = " + newuser.userId)
 	newuser.position = results[0][0]
 	return
 
 #获取手机、短号、座机号
 def getPhone():
-	results = excecu("select p.phone_num,p.short_num,p.tel_num from phone as p where user_id = " + str(newuser.userId))
+	results = excecu("select p.phone_num,p.short_num,p.tel_num from phone as p where user_id = " + newuser.userId)
 	newuser.tel,newuser.short,newuser.tel = results[0][0],results[0][1],results[0][2]
 	return
 
