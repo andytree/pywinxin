@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sae.const
 import MySQLdb
-import user.User
+import user
 
 """sae.const.MYSQL_DB      # 数据库名
 sae.const.MYSQL_USER    # 用户名
@@ -33,7 +33,7 @@ def getID(uname):
 		return True
 	for row in results:
 		#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
-		newuser = User(row[0])
+		newuser = user.User(row[0])
 		newuser.userName ,newuser.departId = row(1),row(2)
 		return False
 
