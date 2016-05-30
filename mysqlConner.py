@@ -10,9 +10,6 @@ sae.const.MYSQL_HOST    # 主库域名（可读写）
 sae.const.MYSQL_PORT    # 端口，类型为<type 'str'>，请根据框架要求自行转换为int
 sae.const.MYSQL_HOST_S  # 从库域名（只读）"""
 
-mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
-	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
-cursor = mdb.cursor()
 newuser = user.User()
 data = u''
 '''cursor.execute("select * from department ")
@@ -22,6 +19,22 @@ for row in results:
 	#data = data + "id = "+ str(row[0]) + "姓名 = "+ row[1].decode('utf-8') + "部门 = "+ str(row[2]) 
 	data = data + u"中\n文\n" + str(row[0]) + str(row[2]) + row[1]
 mdb.close()'''
+
+mdb = ''
+cursor = ''
+#打开数据库连接
+def open():
+	mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
+	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
+	cursor = mdb.cursor()
+	return
+
+#关闭数据库连接
+def close():
+	cursor.close()
+	mdb.close()
+	return
+
 #执行sql，返回结果集
 def excecu(ssql):
 	cursor.execute(ssql)
@@ -67,6 +80,7 @@ def getPhone():
 #获取数据转对象，对象转字符串的数据
 def getData(uname):
 	isNone = getID(uname[1:])
+	open()
 	if isNone :
 		data = u'查无此人'
 	else :
@@ -74,4 +88,5 @@ def getData(uname):
 		getPosition()
 		getPhone()
 		data = newuser.getUserInfo()
+	close()
 	return data
