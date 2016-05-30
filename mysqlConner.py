@@ -82,7 +82,7 @@ def getPhone():
 def getData(uname):
    	mdb = MySQLdb.connect(host = sae.const.MYSQL_HOST,port = int(sae.const.MYSQL_PORT),user = sae.const.MYSQL_USER,
 	passwd = sae.const.MYSQL_PASS,db = sae.const.MYSQL_DB,charset = 'utf8')
-   	#cursor = mdb.cursor()
+   	cursor = mdb.cursor()
 	isNone = getID(uname[1:])
 	if isNone :
 		data = u'查无此人'
