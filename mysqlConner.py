@@ -47,6 +47,7 @@ def getDepartInfo():
 		results = excecu("select a.depart_name as '部室',b.depart_name as '部门' from department as a, department as b where b.id = a.parent_id and a.id = " + newuser.departId)
 		print results[0][0]
 		user.department = results[0][0]
+		print user.department
 		user.parentdepartment = results[0][1]
 		#print user.department,user.parentdepartment
 	return
